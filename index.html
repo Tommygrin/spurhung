@@ -114,7 +114,7 @@ footer{border-top:1px solid var(--border);padding:24px 0;text-align:center;color
 </section>
 
 <section id="book">
-<h2 style="text-align:center">Book a session</h2><p class="sub" style="text-align:center">Send your request and I’ll confirm on Telegram.</p>
+<h2 style="text-align:center">Book a session</h2><p class="sub" style="text-align:center">Send your request on WhatsApp or Telegram and I’ll confirm your appointment.</p>
 <div class="book">
 <label for="n">Name</label><input id="n" autocomplete="name">
 <label for="s">Service</label>
@@ -126,6 +126,7 @@ footer{border-top:1px solid var(--border);padding:24px 0;text-align:center;color
 <label for="d">Preferred date &amp; time</label><input id="d" type="datetime-local">
 <label for="m">Notes (injuries, pressure preference)</label><textarea id="m" rows="3"></textarea>
 <p style="margin:18px 0 0;font-size:.9rem;color:var(--muted)">A 50% deposit is required to confirm your booking. It is refundable if you cancel at least 24 hours before the appointment. The balance is paid at the appointment.</p>
+<button class="btn" id="send4" type="button">Book on WhatsApp</button>
 <button class="btn" id="send" type="button">Book on Telegram</button>
 <button class="btn" id="send2" type="button" style="background:transparent;color:var(--accent);border:1px solid var(--accent);margin-top:10px">Book by email</button>
 <button class="btn" id="send3" type="button" style="background:transparent;color:var(--accent);border:1px solid var(--accent);margin-top:10px">Book by iMessage</button>
@@ -138,6 +139,7 @@ footer{border-top:1px solid var(--border);padding:24px 0;text-align:center;color
 <div class="card"><h3>Location</h3><p>Therapist hosts at a private studio (address shared on booking), or the client hosts and I visit</p></div>
 <div class="card"><h3>Hours</h3><p>Daily: 8:00am – 11:30pm</p></div>
 <div class="card"><h3>Telegram</h3><p><a href="https://t.me/spanoskiri31" style="color:var(--accent)">@spanoskiri31</a></p></div>
+<div class="card"><h3>WhatsApp</h3><p><a href="https://wa.me/12034507800" style="color:var(--accent)">Message on WhatsApp</a></p></div>
 <div class="card"><h3>Email</h3><p><a href="mailto:tompreek43@outlook.com" style="color:var(--accent)">tompreek43@outlook.com</a></p></div>
 <div class="card"><h3>iMessage</h3><p><a href="sms:tompreek43@outlook.com" style="color:var(--accent)">tompreek43@outlook.com</a></p></div>
 </div>
@@ -156,11 +158,11 @@ document.querySelectorAll('[data-i]').forEach(function(e){e.innerHTML=svg(e.getA
 var N=['wave','stone','bolt','drop','leaf','flame','sun','moon'];
 document.querySelectorAll('#services .card').forEach(function(c,i){var d=document.createElement('div');d.className='ic';d.innerHTML=svg(N[i%N.length]);c.insertBefore(d,c.firstChild)});
 var TG="spanoskiri31"; // replace with your Telegram username, no @
-var CH='tg';document.getElementById('send').onclick=function(){CH='tg';go()};document.getElementById('send2').onclick=function(){CH='mail';go()};document.getElementById('send3').onclick=function(){CH='sms';go()};function go(){
+var CH='tg';document.getElementById('send').onclick=function(){CH='tg';go()};document.getElementById('send2').onclick=function(){CH='mail';go()};document.getElementById('send3').onclick=function(){CH='sms';go()};document.getElementById('send4').onclick=function(){CH='wa';go()};function go(){
   var g=function(i){return document.getElementById(i).value.trim()};
   if(!g('n')){alert('Please enter your name.');return}
   var t="Booking request%0AName: "+encodeURIComponent(g('n'))+"%0AService: "+encodeURIComponent(g('s'))+"%0ADuration: "+encodeURIComponent(g('t'))+"%0ALocation: "+encodeURIComponent(g('l'))+"%0ADate: "+encodeURIComponent(g('d'))+"%0ANotes: "+encodeURIComponent(g('m'));
-  var E="tompreek43@outlook.com";if(CH==='mail'){location.href="mailto:"+E+"?subject=Booking%20request&body="+t}else if(CH==='sms'){location.href="sms:"+E+"&body="+t}else{window.open("https://t.me/"+TG+"?text="+t,"_blank")}
+  var E="tompreek43@outlook.com";if(CH==='mail'){location.href="mailto:"+E+"?subject=Booking%20request&body="+t}else if(CH==='sms'){location.href="sms:"+E+"&body="+t}else if(CH==='wa'){window.open("https://wa.me/12034507800?text="+t,"_blank")}else{window.open("https://t.me/"+TG+"?text="+t,"_blank")}
 };
 </script>
 </body>
